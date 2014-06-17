@@ -1,0 +1,49 @@
+body {
+  padding: 16em 16em;
+  background-color: #000000;
+}
+
+h1 {
+  font-family: Georgia, Times, serif;
+  font-size: 6em;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+input {
+  padding: 0em;
+  outline: none;
+}
+
+button {
+  background-color: rgb(238, 238, 238);
+  border-bottom-color: rgb(213, 213, 213);
+  border-bottom-width: 1px;
+  border-left-color: rgb(213, 213, 213);
+  border-left-width: 1px;
+  border-right-color: rgb(213, 213, 213);
+  border-right-width: 1px;
+  border-top-color: rgb(213, 213, 213);
+  border-top-width: 1px;
+  color: rgb(51, 51, 51);
+  display: inline-block;
+  font-family: Georgia, Times, serif;
+  font-size: 13px;
+  font-weight: bold;
+  height: 26px;
+  line-height: 24px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  text-decoration: none solid rgb(51, 51, 51);
+  text-shadow: rgba(255, 255, 255, 0.901961) 0px 1px 0px;
+  vertical-align: top;
+  width: 60px;
+  outline: none;
+}
+
+p {
+  font-size: 1.2em;
+  font-family: Georgia, Times, serif;
+  font: Georgia, Times, serif;
+  color: #ffffff;
+} 
