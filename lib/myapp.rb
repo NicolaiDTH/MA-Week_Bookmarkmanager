@@ -1,10 +1,20 @@
+require 'data_mapper'
 require 'sinatra'
+require './lib/link'
 
 enable :sessions
 
 set :lib, Proc.new {File.join(root, '..', "lib") }
 
 set :public_folder, Proc.new {File.join(root, '..', "public")}
+
+env = ENV["RACK_ENV"] || "development"
+
+DataMapper.setup(:default, "postgres://localhost/Sinatratests_#{env}")
+
+DataMapper.finalize
+
+DataMapper.auto_upgrade!
 
 get '/' do
   erb :home
