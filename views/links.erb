@@ -1,0 +1,12 @@
+  <body>
+  <center>
+  <h1>links</h1>  
+    <ul>
+      <% @links.each do |link| %>
+        <li><a href="<%= link.url %>"><%= link.title %></a>
+            <a href="/delete/<%= link.id %>">Delete <%= link.title %></a>
+        </li>
+      <% end %>
+    </ul>
+  </center>
+</body>  

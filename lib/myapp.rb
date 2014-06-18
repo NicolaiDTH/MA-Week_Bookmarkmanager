@@ -3,9 +3,8 @@ require_relative './server'
 
 enable :sessions
 
-set :lib, Proc.new {File.join(root, '..', "lib") }
-
 set :public_folder, Proc.new {File.join(root, '..', "public")}
+set :views, Proc.new {File.join(root,'../views/')}
 
 get '/' do
   erb :home
@@ -22,6 +21,12 @@ get '/links' do
   @links = Link.all
   erb :links
 end
+
+get '/delete/:id' do
+  Link.get(params[:id]).destroy
+  redirect to '/links'
+end
+
 
 # post '/links' do
  
