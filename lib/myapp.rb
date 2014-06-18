@@ -27,12 +27,6 @@ get '/delete/:id' do
   redirect to '/links'
 end
 
-
-# post '/links' do
- 
-#   erb :links
-# end
-
 get '/level0' do
   erb :level0
 end

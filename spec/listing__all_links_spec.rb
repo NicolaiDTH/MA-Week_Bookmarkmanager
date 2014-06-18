@@ -8,7 +8,7 @@ feature "User browses the list of links" do
   }
 
   scenario "when opening the home page" do 
-    visit '/'
+    visit '/links'
     expect(page).to have_content("Makers Academy")
   end
   

@@ -3,10 +3,14 @@
   <h1>links</h1>  
     <ul>
       <% @links.each do |link| %>
-        <li><a href="<%= link.url %>"><%= link.title %></a>
-            <a href="/delete/<%= link.id %>">Delete <%= link.title %></a>
+        <li>
+          <a class="listedlink" href="<%= link.url %>"><%= link.title %></a>
+          <a href="/delete/<%= link.id %>" class="myButton">omit</a>
         </li>
       <% end %>
     </ul>
+      <form action="/" method="get">
+        <button class="myButton">back</button>
+      </form>
   </center>
 </body>  
