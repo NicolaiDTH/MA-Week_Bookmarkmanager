@@ -1,26 +1,33 @@
 body {
   padding: 16em 16em;
-  background-color: #000000;
+  background-color: #000;
 }
 
 h1 {
   font-family: Georgia, Times, serif;
-  font-size: 6em;
+  font-size: 6.5em;
   font-weight: 500;
-  color: #ffffff;
+  color: #fff;
 }
 
-input {
-  padding: 0em;
-  outline: none;
-}
-
-button {
+h2 {
+  font-family: Georgia, Times, serif;
+  font-size: 2em;
+  font-weight: 200;
+  color: #fff;
 }
 
 p {
   font-size: 1.2em;
   font-family: Georgia, Times, serif;
   font: Georgia, Times, serif;
-  color: #ffffff;
-} 
+  color: #fff;
+}
+
+
+input {
+  outline: none;
+}
+
+button {
+}

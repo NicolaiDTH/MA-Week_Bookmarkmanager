@@ -1,6 +1,5 @@
-require 'data_mapper'
 require 'sinatra'
-require './lib/link'
+require_relative './server'
 
 enable :sessions
 
@@ -8,20 +7,33 @@ set :lib, Proc.new {File.join(root, '..', "lib") }
 
 set :public_folder, Proc.new {File.join(root, '..', "public")}
 
-env = ENV["RACK_ENV"] || "development"
-
-DataMapper.setup(:default, "postgres://localhost/Sinatratests_#{env}")
-
-DataMapper.finalize
-
-DataMapper.auto_upgrade!
-
 get '/' do
   erb :home
 end
 
 post '/' do
-    if params[:password] == 'key'
+  url = params["url"]
+  title = params["title"]
+  Link.create(:url => url, :title => title)
+  redirect to('/links')
+end
+
+get '/links' do 
+  @links = Link.all
+  erb :links
+end
+
+# post '/links' do
+ 
+#   erb :links
+# end
+
+get '/level0' do
+  erb :level0
+end
+
+post '/level0' do
+  if params[:password] == 'key'
     session[:password]= params[:password]
     redirect '/level1'
   else
@@ -50,7 +62,8 @@ post '/level2' do
   if params[:password] == 'death'
     session[:password]= params[:password]
     redirect '/level3'
-  else redirect '/error'
+  else 
+    redirect '/error'
   end
 end
 
