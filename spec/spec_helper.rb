@@ -3,15 +3,17 @@ ENV["RACK_ENV"] = 'test'
 require 'sinatra'
 require_relative '../lib/server'
 require_relative '../lib/myapp'
+require_relative '../lib/link'
+require_relative '../lib/tag'
 require 'database_cleaner'
 require 'capybara/rspec'
 
 Capybara.app =  Sinatra::Application.new
 
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
-  config.run_all_when_everything_filtered = true
-  config.filter_run :focus
+  # config.treat_symbols_as_metadata_keys_with_true_values = true
+  # config.run_all_when_everything_filtered = true
+  # config.filter_run :focus
 
   config.order = 'random'
 

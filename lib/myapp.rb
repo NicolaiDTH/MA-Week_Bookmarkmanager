@@ -13,12 +13,21 @@ end
 post '/' do
   url = params["url"]
   title = params["title"]
-  Link.create(:url => url, :title => title)
+  tag = params["tag"].split(" ").map do |tag|
+  Tag.first_or_create(:text => tag)
+  end  
+  Link.create(:url => url, :title => title, :tag => tag)
   redirect to('/links')
 end
 
 get '/links' do 
   @links = Link.all
+  erb :links
+end
+
+get '/links/:text' do
+  tag = Tag.first(:text => params[:text])
+  @links = tag ? tag.links : []
   erb :links
 end
 

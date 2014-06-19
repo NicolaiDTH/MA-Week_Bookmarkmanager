@@ -28,7 +28,7 @@ p {
 input {
   outline: none;
   background-color: #fff;
-  width: 5.5em;
+  width: 11em;
 }
 
 .myButton {
@@ -50,8 +50,8 @@ input {
   display:inline-block;
   cursor:pointer;
   color:#666666;
-  font-family:arial;
-  font-size:11px;
+  font-family: Georgia, Times, serif;
+  font-size:15px;
   font-weight:bold;
   padding:6px 24px;
   text-decoration:none;
