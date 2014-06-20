@@ -1,0 +1,19 @@
+<html>
+  <link rel="stylesheet" href="/css/style.css" />
+  <head>
+  </head>  
+  <body>
+    <center>
+      <h1>join</h1>
+        <form action="/signup/new" method="post" autocomplete="off">
+          <input name="email" type="text" value="<%= @user.email %>"placeholder="email">
+          <br>
+          <input name="password" type="password" placeholder="password">
+          <br>
+          <input name="password_confirmation" type="password" placeholder="confirm">
+          <br>        
+        <button class="myButton">register</button>
+        </form>
+    </center>
+  </body> 
+</html> 

@@ -3,6 +3,13 @@ body {
   background-color: #000;
 }
 
+.currentuser {
+  font-family: Georgia, Times, serif;
+  font-size: 1em;
+  font-weight: 100;
+  color: #fff;
+}
+
 h1 {
   font-family: Georgia, Times, serif;
   font-size: 6.5em;
@@ -28,7 +35,7 @@ p {
 input {
   outline: none;
   background-color: #fff;
-  width: 11em;
+  width: 11.5em;
 }
 
 .myButton {

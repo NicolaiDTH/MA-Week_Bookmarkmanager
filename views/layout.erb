@@ -3,6 +3,16 @@
   <head>
   </head>
   <body>
+    <div class='currentuser'>
+    <center>
+      <% if current_user %>
+    You are <%= current_user.email %>
+    <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% end %>
+    </center>
+    </div>
     <%= yield %>
   </body>
 </html>

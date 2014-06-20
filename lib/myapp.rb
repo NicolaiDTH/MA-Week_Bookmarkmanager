@@ -1,22 +1,67 @@
 require 'sinatra'
+require 'sinatra/flash'
 require_relative './server'
-
-enable :sessions
 
 set :public_folder, Proc.new {File.join(root, '..', "public")}
 set :views, Proc.new {File.join(root,'../views/')}
 
+  enable :sessions
+  set :session_secret, 'super secret'
+
+helpers do
+  def current_user    
+    @current_user ||=User.get(session[:user_id]) if session[:user_id]
+  end
+end
+
 get '/' do
+  erb :visitors, layout: false
+end
+
+# get '/signon/new' do
+#   erb :signon
+# end
+
+# post '/signon/new' do
+#   if User.create(:email => params[:email], 
+#                  :password => params[:password])
+#   session[:user_id] = user.id
+#   redirect to('/home')
+#   else
+#   redirect to('/fail') 
+#   end
+# end
+
+get '/signup/new' do
+  @user = User.new
+  erb :signup, layout: false
+end
+
+post '/signup/new' do
+  @user = User.new(:email => params[:email], 
+                 :password => params[:password],
+                 :password_confirmation => params[:password_confirmation])
+  if @user.save
+    session[:user_id] = @user.id
+    flash[:notice] = ""
+    redirect to '/home' 
+  else
+    flash[:notice] = "wrong"
+    redirect to '/fail'
+  end
+end
+
+get '/home' do
   erb :home
 end
 
-post '/' do
+post '/home' do
   url = params["url"]
   title = params["title"]
   tag = params["tag"].split(" ").map do |tag|
   Tag.first_or_create(:text => tag)
   end  
-  Link.create(:url => url, :title => title, :tag => tag)
+  Link.create(:url => url, :title => title, :tags => tag)
   redirect to('/links')
 end
 
@@ -32,7 +77,8 @@ get '/links/:text' do
 end
 
 get '/delete/:id' do
-  Link.get(params[:id]).destroy
+  link = Link.first(:id => params[:id])
+  link.destroy!
   redirect to '/links'
 end
 
@@ -116,4 +162,8 @@ end
 
 get '/error' do
   erb :error
+end
+
+get '/fail' do
+  erb :fail
 end
