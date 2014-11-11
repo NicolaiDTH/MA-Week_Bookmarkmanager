@@ -1,3 +1,5 @@
+![MAlogo!](http://www.makersacademy.com/images/logo.png)
+
 ![Bookmarks!](http://files.softicons.com/download/android-icons/flat-icons-by-martz90/png/512x512/bookmarks.png)
 
 Bookmark Manager - "Links'n'That"
